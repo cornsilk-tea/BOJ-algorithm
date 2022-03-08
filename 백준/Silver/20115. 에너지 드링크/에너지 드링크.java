@@ -11,15 +11,19 @@ public class Main {
 		int N = Integer.parseInt(br.readLine());
 		double[] arr = new double[N];
 		StringTokenizer st = new StringTokenizer(br.readLine());
+		double max = Double.MIN_VALUE;
 		for (int i = 0; i < arr.length; i++) {
 			arr[i] = Integer.parseInt(st.nextToken());
+			max = Math.max(max, arr[i]);
 		}
+		double result = max;
 		Arrays.sort(arr);
 //		System.out.println(Arrays.toString(arr));		
 		for (int i = 0; i < arr.length - 1; i++) {
-			arr[N - 1] += arr[i] / 2;
+			if (max != arr[i])
+				result += arr[i] / 2;
 		}
-		System.out.println(arr[N - 1]);
+		System.out.println(result);
 	}
 
 }
